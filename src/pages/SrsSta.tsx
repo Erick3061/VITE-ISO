@@ -23,6 +23,7 @@ export const SrsSta = () => {
     const [isOpen, setIsOpen] = useState<{ isStart: boolean, isEnd: boolean, isIndividual: boolean }>({ isStart: false, isEnd: false, isIndividual: false });
 
     const Events = useQuery(['SrsSta'], () => getEvents({ start: start.date.date, end: end.date.date, events: 'SrsSta' }), {
+        refetchOnWindowFocus: false,
         onSuccess: data => {
             setsrs(data.srs);
             setsta(data.sta);

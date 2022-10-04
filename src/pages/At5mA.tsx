@@ -17,6 +17,7 @@ export const At5mA = () => {
     const [isOpen, setIsOpen] = useState<{ isStart: boolean, isEnd: boolean, isIndividual: boolean }>({ isStart: false, isEnd: false, isIndividual: false });
 
     const Events = useQuery(['At5mA'], () => getEvents({ start: start.date.date, end: end.date.date, events: 'At5mA' }), {
+        refetchOnWindowFocus: false,
         onSuccess: data => {
             setat5ma(data.at5ma);
             setinterv(false);

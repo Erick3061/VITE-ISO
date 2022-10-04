@@ -12,6 +12,7 @@ export const SystemInstaller = () => {
     const [accountsWithOutPanel, setaccountsWithOutPanel] = useState<Array<Array<string>>>([]);
 
     const Accounts = useQuery(['SystemInstaller'], () => getAccounts(), {
+        refetchOnWindowFocus: false,
         onSuccess: data => {
             setaccountsWithPanel(data.accountsWithPanel.map(acc => [acc.CodigoAbonado, acc.CodigoCte, acc.Nombre, acc.DP!]));
             setaccountsWithOutPanel(data.accountsWithOutPanel.map(acc => [acc.CodigoAbonado, acc.CodigoCte, acc.Nombre, 'Sin Panel']));

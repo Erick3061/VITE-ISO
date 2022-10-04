@@ -22,6 +22,7 @@ export const TessTesse = () => {
     const [isOpen, setIsOpen] = useState<{ isStart: boolean, isEnd: boolean, isIndividual: boolean }>({ isStart: false, isEnd: false, isIndividual: false });
 
     const Events = useQuery(['TessTese'], () => getEvents({ start: start.date.date, end: end.date.date, events: 'TessTese' }), {
+        refetchOnWindowFocus: false,
         onSuccess: data => {
             console.log(data);
 
